@@ -33,7 +33,6 @@ export class OperacionesComponent {
 
     addPunto(val: boolean, puto: string):void {
         console.log('PIVOT : ', this.pivot);
-        
 
         if(this.pivot && (this.nbefore && !this.nafter) ) {
             console.log('Ingresamos: al primero');
@@ -44,6 +43,9 @@ export class OperacionesComponent {
         }
 
         if(!this.pivot && this.nafter) {
+            if(this.nafter.includes('.')) {
+                return;
+            }
             console.log('Ingresamos al segundo');
             
             this.nafter = this.nafter + puto;
@@ -99,27 +101,33 @@ export class OperacionesComponent {
         if(this.operador === '+') {
             console.log('Vamos a sumar');
             this.digitando = false;
-            this.resultado = (parseFloat(this.nbefore) + parseFloat(this.nafter)).toString();
+            // this.resultado = (parseFloat(this.nbefore) + parseFloat(this.nafter)).toString();
+            this.nbefore = (parseFloat(this.nbefore) + parseFloat(this.nafter)).toString();
         }
         
         if(this.operador === '-') {
             console.log('Vamos a restar');
             this.digitando = false;
-            this.resultado = (parseFloat(this.nbefore) - parseFloat(this.nafter)).toString();
+            this.nbefore = (parseFloat(this.nbefore) - parseFloat(this.nafter)).toString();
         }
 
         if(this.operador === 'x') {
             console.log('Vamos a Multiplicar');
             this.digitando = false;
-            this.resultado = (parseFloat(this.nbefore) * parseFloat(this.nafter)).toString();
+            this.nbefore = (parseFloat(this.nbefore) * parseFloat(this.nafter)).toString();
         }
 
         if(this.operador === '÷') {
             console.log('Vamos a Dividir');
             this.digitando = false;
-            this.resultado = (parseFloat(this.nbefore) / parseFloat(this.nafter)).toString();
+            this.nbefore = (parseFloat(this.nbefore) / parseFloat(this.nafter)).toString();
         }
 
+        this.nafter = '';
+        this.operador = '';
+        // this.digitando = true;
+        this.pivot = false;
+        this.moneda2 = '';
         console.log(this.resultado)
 
     }

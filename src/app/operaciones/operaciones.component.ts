@@ -19,10 +19,8 @@ export class OperacionesComponent {
     pivot = true;
 
     pantalla = '0';
-    // nbefore!:number;
     nbefore:string = '';
     operador!: string;
-    // nafter!: number;
     nafter: string = '';
 
     operar = true;
@@ -32,10 +30,8 @@ export class OperacionesComponent {
 
 
     addPunto(val: boolean, puto: string):void {
-        console.log('PIVOT : ', this.pivot);
 
         if(this.pivot && (this.nbefore && !this.nafter) ) {
-            console.log('Ingresamos: al primero');
             this.nbefore  = this.nbefore + puto;
             this.pivot = false;
         }
@@ -44,8 +40,6 @@ export class OperacionesComponent {
             if(this.nafter.includes('.')) {
                 return;
             }
-
-            console.log('Ingresamos al segundo');
             this.nafter = this.nafter + puto;
 
             this.pivot = true;
@@ -66,10 +60,7 @@ export class OperacionesComponent {
     eliminar(): void {
         if(this.nafter){
             let final:number = this.nafter.length;
-    
-            console.log('numero de leng:', final);
             this.nafter = this.nafter.slice(0, final-1);
-            console.log(this.nafter);
             if(!this.nbefore.includes('.')){
                 this.pivot = true;
             }
@@ -78,15 +69,13 @@ export class OperacionesComponent {
 
             let final:number = this.operador.length;
     
-            console.log('numero de leng:', final);
             this.operador = this.operador.slice(0, final-1);
-            console.log(this.operador);
+
         }else{
             let final:number = this.nbefore.length;
-    
-            console.log('numero de leng:', final);
+
             this.nbefore = this.nbefore.slice(0, final-1);
-            console.log(this.nbefore);
+
             if(!this.nbefore) {
                 this.moneda1 = '';
             }
@@ -134,7 +123,6 @@ export class OperacionesComponent {
 // agregamos el numero:
     addNumero(numero: string):void {
         if(this.operador) {
-            console.log('Existe');
             if(this.nafter === '0'){
                  this.nafter = numero
                  return;
@@ -143,7 +131,6 @@ export class OperacionesComponent {
             this.pivot = false;
             this.moneda2 = '$';
         }else {
-            console.log('No Existe');
             if(this.nbefore === '0'){
                 this.nbefore = numero
                 return;

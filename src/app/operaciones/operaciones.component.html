@@ -1,1 +1,68 @@
-<p>operaciones works!</p>
+
+<div class="componente">
+    <div class="texto" *ngIf="digitando; else operando">
+       {{moneda1}} {{nbefore}} {{operador}} {{moneda2}} {{nafter}}
+    </div>
+    <ng-template #operando class="resultados">
+        {{moneda1}}{{resultado}}
+    </ng-template>
+</div>
+
+<!-- <input type="text" class="componente" [(ngModel)]="pantalla" value="unasolacosa"> -->
+
+<div class="calculadora">
+
+    <input class="division" [ngStyle]="{'background-color':'#EAECEE'}" type="button" value="÷" (click)="addOperador('÷')">
+
+    <input class="uno" [ngStyle]="{'background-color':'#FDFEFE'}" type="button" value="1" (click)="addNumero('1')">
+
+    <input class="dos" [ngStyle]="{'background-color':'#FDFEFE'}" type="button" value="2" #dos (click)="addNumero('2')">
+
+    <input class="tres" [ngStyle]="{'background-color':'#FDFEFE'}" type="button" value="3" (click)="addNumero('3')">
+
+    <!-- boton delete -->
+    <button class="eliminar" [ngStyle]="{'background-color':'#FDFEFE'}" (click)="eliminar()">
+        <div class="cuadrado">
+            <i class="icono bi bi-x"></i>
+            <div class="triangulo"></div>
+        </div>
+    </button>
+
+    <input class="multiplicar" [ngStyle]="{'background-color':'#EAECEE'}" type="button" value="x" #multi (click)="addOperador(multi.value)">
+
+    <input class="cuatro" [ngStyle]="{'background-color':'#FDFEFE'}" type="button" value="4" (click)="addNumero('4')">
+
+    <input class="cinco" [ngStyle]="{'background-color':'#FDFEFE'}" type="button" value="5" (click)="addNumero('5')">
+
+    <input class="seis" [ngStyle]="{'background-color':'#FDFEFE'}" type="button" value="6" (click)="addNumero('6')">
+
+    <input class="reiniciar" [ngStyle]="{'background-color':'#FDFEFE'}" type="button" value="C" (click)="resetear()">
+
+    <input class="restar" [ngStyle]="{'background-color':'#EAECEE'}" type="button" value="-" #restar (click)="addOperador(restar.value)">
+
+    <input class="siete" [ngStyle]="{'background-color':'#FDFEFE'}" type="button" value="7" (click)="addNumero('7')">
+
+    <input class="ocho" [ngStyle]="{'background-color':'#FDFEFE'}" type="button" value="8" (click)="addNumero('8')">
+
+    <input class="nueve" [ngStyle]="{'background-color':'#FDFEFE'}" type="button" value="9" (click)="addNumero('9')">
+
+    <!-- boton listo -->
+    <button class="listo check" [ngStyle]="{'background-color':'#06b6d4'}" (click)="ejecutar()">
+        <i *ngIf="operar;else loggedOut" class="bi bi-check2"></i>
+    </button>
+
+    <ng-template #loggedOut>
+        =
+    </ng-template>
+
+
+    <input  class="sumar"[ngStyle]="{'background-color':'#EAECEE'}" type="button" value="+" #sumar (click)="addOperador(sumar.value)">
+
+    <!-- boton calendario -->
+    <button class="calendario" [ngStyle]="{'background-color':'#FDFEFE'}"><i class="bi bi-calendar-event"></i></button>
+
+    <input class="cero" [ngStyle]="{'background-color':'#FDFEFE'}" type="button" value="0" #cero (click)="addNumero(cero.value)">
+
+    <input class="punto" [ngStyle]="{'background-color':'#FDFEFE'}"type="button" value="." (click)="addPunto(true, '.')">
+        
+</div>

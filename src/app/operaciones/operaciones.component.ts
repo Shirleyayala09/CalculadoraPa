@@ -36,9 +36,7 @@ export class OperacionesComponent {
 
         if(this.pivot && (this.nbefore && !this.nafter) ) {
             console.log('Ingresamos: al primero');
-
             this.nbefore  = this.nbefore + puto;
-            
             this.pivot = false;
         }
 
@@ -46,12 +44,11 @@ export class OperacionesComponent {
             if(this.nafter.includes('.')) {
                 return;
             }
+
             console.log('Ingresamos al segundo');
-            
             this.nafter = this.nafter + puto;
 
             this.pivot = true;
-
         }
 
     }
@@ -73,6 +70,9 @@ export class OperacionesComponent {
             console.log('numero de leng:', final);
             this.nafter = this.nafter.slice(0, final-1);
             console.log(this.nafter);
+            if(!this.nbefore.includes('.')){
+                this.pivot = true;
+            }
         }else if(this.operador){
             this.moneda2 = '';
 
@@ -87,52 +87,42 @@ export class OperacionesComponent {
             console.log('numero de leng:', final);
             this.nbefore = this.nbefore.slice(0, final-1);
             console.log(this.nbefore);
-            (!this.nbefore) ? this.moneda1 = '': '';
+            if(!this.nbefore) {
+                this.moneda1 = '';
+            }
+            if(!this.nbefore.includes('.')){
+                this.pivot = true;
+            }
         }
         
     }
 
     
     ejecutar():void {
-        console.log('Vamos a ejecutar todo');
-
-        // console.log(this.digitando);
-
+        
         if(this.operador === '+') {
-            console.log('Vamos a sumar');
-            this.digitando = false;
-            // this.resultado = (parseFloat(this.nbefore) + parseFloat(this.nafter)).toString();
             this.nbefore = (parseFloat(this.nbefore) + parseFloat(this.nafter)).toString();
         }
-        
+     
         if(this.operador === '-') {
-            console.log('Vamos a restar');
-            this.digitando = false;
             this.nbefore = (parseFloat(this.nbefore) - parseFloat(this.nafter)).toString();
         }
 
         if(this.operador === 'x') {
-            console.log('Vamos a Multiplicar');
-            this.digitando = false;
             this.nbefore = (parseFloat(this.nbefore) * parseFloat(this.nafter)).toString();
         }
 
         if(this.operador === '÷') {
-            console.log('Vamos a Dividir');
-            this.digitando = false;
             this.nbefore = (parseFloat(this.nbefore) / parseFloat(this.nafter)).toString();
         }
 
         this.nafter = '';
         this.operador = '';
-        // this.digitando = true;
         this.pivot = false;
         this.moneda2 = '';
-        console.log(this.resultado)
+        console.log(this.nbefore)
 
     }
-
-
 
     addOperador(operador: string):void {
         if(this.nbefore || this.nafter) {
@@ -162,7 +152,6 @@ export class OperacionesComponent {
             this.moneda1 = '$';
         }
         
-        console.log(this.operador);
     }
 
 }

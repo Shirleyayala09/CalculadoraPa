@@ -1,0 +1,64 @@
+{
+   "transactions": [
+      {
+         "id": 1,
+         "amount": 1000,
+         "date": "2022-01-01 05:27:25",
+         "category_id": 1
+      },
+      {
+         "id": 2,
+         "amount": 800,
+         "date": "2022-01-01 09:17:39",
+         "category_id": 4
+      },
+      {
+         "id": 3,
+         "amount": 25,
+         "date": "2022-01-01 22:17:40",
+         "category_id": 3
+      },
+      {
+         "id": 4,
+         "amount": 20,
+         "date": "2022-01-02 13:00:10",
+         "category_id": 3
+      },
+      {
+         "id": 5,
+         "amount": 10,
+         "date": "2022-01-02 21:01:28",
+         "category_id": 3
+      },
+      {
+         "id": 6,
+         "amount": 149,
+         "date": "2022-01-02 03:55:02",
+         "category_id": 6
+      },
+      {
+         "id": 7,
+         "amount": 12,
+         "date": "2022-01-02 23:34:48",
+         "category_id": 5
+      },
+      {
+         "id": 8,
+         "amount": 8,
+         "date": "2022-01-02 07:45:23",
+         "category_id": 3
+      },
+      {
+         "id": 9,
+         "amount": 150,
+         "date": "2022-01-02 06:37:32",
+         "category_id": 6
+      },
+      {
+         "id": 10,
+         "amount": 12,
+         "date": "2022-01-03 00:31:43",
+         "category_id": 3
+      }
+   ]
+}

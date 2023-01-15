@@ -1,0 +1,112 @@
+
+.button{
+    border-radius: 8px;
+    border: 3px dashed rgb(179, 175, 175);
+    padding: 15px 90px;
+    font-size: 2rem;
+    color: rgb(179, 175, 175);
+    font-weight: 300;
+    background-color: #fff;
+    transition: transform .2s; 
+}
+.button:hover{
+    transform: scale(1.2); 
+}
+
+.circle{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: red;
+    transition: transform .3s; 
+}
+
+
+.circle--1{
+    background-color: #ef4444;   
+}
+.circle--2{
+    background-color: #f97316;
+}
+.circle--3{
+    background-color: #f59e0b;
+}
+.circle--4{
+    background-color: #10b981;
+}
+
+
+.circle--5{
+    background-color: #14b8a6;
+}
+
+.circle--6{
+    background-color: #06b6d4;
+}
+.circle--7{
+    background-color: #0ea5e9;
+}
+.circle--8{
+    background-color: #3b82f6;
+}
+
+
+.circle:hover{
+    border: 10px double white;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.selected{
+    border: 10px double white;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+i{  
+    color: #4b5563;
+    font-size: 1.6rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+i:hover{
+    color: white;
+    transform: scale(1.1);  
+    background-color: rgb(88, 87, 87);
+    cursor: pointer;
+}
+.circle__selected{
+    color: white;
+    transform: scale(1.1);  
+    background-color: rgb(88, 87, 87);
+    cursor: pointer;
+}
+
+
+.selected__circle{
+    transform: scale(1.1);  
+    background-color: rgb(88, 87, 87);
+    cursor: pointer;
+}
+
+
+.button__enviar{
+    background-color: #db2777;
+    color: #fff;
+    width: 100%;
+    padding: 8px 0;
+    border-radius: .6rem;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: transform .3s; 
+}
+.button__enviar:hover{
+    background-color: #bb296b;
+}

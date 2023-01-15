@@ -1,0 +1,87 @@
+  <!-- Modal -->
+  <div class="modal fade animate_animated animate_slideInDown" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header border border-0">
+          <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">New Category</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body  pt-0 pb-0">
+            <div class="mb-3">
+                <label for="" class="form-label fw-bolder text-secondary h6">NAME</label>
+                <input type="text" name="name" class="form-control" [(ngModel)]="name">
+            </div>
+
+            <div class="mb-3">
+                <label for="" class="form-label fw-bolder text-secondary h6 mb-3">COLOR</label>
+                <div class="row mb-4">
+                    <div class="container d-flex justify-content-between">
+                        <div (click)="Mostrar1()" [ngClass]="{'selected':mostrar_1===true}" class="circle circle--1" (click)="selectColor('red')"
+                        ></div>
+                        <div (click)="Mostrar2()" [ngClass]="{'selected':mostrar_2===true}" class="circle circle--2" (click)="selectColor('darkorange')"></div>
+                        <div (click)="Mostrar3()" [ngClass]="{'selected':mostrar_3===true}" class="circle circle--3" (click)="selectColor('orange')"></div>
+                        <div (click)="Mostrar4()" [ngClass]="{'selected':mostrar_4===true}" class="circle circle--4" (click)="selectColor('darkgreen')"></div>
+                    </div>            
+                </div>
+
+                <div class="row">
+                    <div class="container d-flex justify-content-between">
+                        <div (click)="Mostrar5()" [ngClass]="{'selected':mostrar_5===true}" class="circle circle--5" (click)="selectColor('green')"></div>
+
+                        <div (click)="Mostrar6()" [ngClass]="{'selected':mostrar_6===true}" class="circle circle--6" (click)="selectColor('skyblue')"></div>
+
+                        <div (click)="Mostrar7()" [ngClass]="{'selected':mostrar_7===true}" class="circle circle--7" (click)="selectColor('darkblue')"></div>
+
+                        <div (click)="Mostrar8()" [ngClass]="{'selected':mostrar_8===true}" class="circle circle--8" (click)="selectColor('blue')"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="" class="form-label fw-bolder text-secondary h6">ICON</label>
+                <div class="row mb-4">
+                    <div class="container d-flex justify-content-between">
+                        <div class="circle__icon">
+                            <!-- (click)="agregar1()" -->
+                            <i (click)="agregar1()" [ngClass]="{'circle__selected':agregar_1===true}" class="bi bi-bank" (click)="selectIcon('bi bi-bank')"></i>
+                        </div>
+                        
+                        <div class="circle__icon">
+                            <i (click)="agregar2()" [ngClass]="{'circle__selected':agregar_2===true}" class="bi bi-cart-fill" (click)="selectIcon('bi bi-cart-fill')"></i>
+                        </div>
+                        <div  class="circle__icon">
+                            <i (click)="agregar3()" [ngClass]="{'circle__selected':agregar_3===true}" class="bx bx-plus-medical" (click)="selectIcon('bx bx-plus-medical')"></i>
+                        </div>
+                        <div  class="circle__icon">
+                            <i (click)="agregar4()" [ngClass]="{'circle__selected':agregar_4===true}"class="fa-solid fa-gamepad" (click)="selectIcon('fa-solid fa-gamepad')"></i>
+                        </div>                         
+                                                   
+                    </div>            
+                </div>
+
+                <div class="row">
+                    <div class="container d-flex justify-content-between">
+
+                        <div class="circle__icon">
+                            <i (click)="agregar5()" [ngClass]="{'circle__selected':agregar_5===true}" class="fa-sharp fa-solid fa-book" (click)="selectIcon('fa-sharp fa-solid fa-book')"></i>
+                        </div>
+                        <div class="circle__icon">
+                            <i (click)="agregar6()"  [ngClass]="{'circle__selected':agregar_6===true}" class="fa-solid fa-graduation-cap" (click)="selectIcon('fa-solid fa-graduation-cap')"></i>
+                        </div>
+                        <div class="circle__icon">
+                            <i (click)="agregar7()" [ngClass]="{'circle__selected':agregar_7===true}" class="bx bxs-car" (click)="selectIcon('bx bxs-car')"></i>
+                        </div>
+                        <div class="circle__icon">
+                            <i (click)="agregar8()" [ngClass]="{'circle__selected':agregar_8===true}" class="bi bi-gift-fill" (click)="selectIcon('bi bi-gift-fill')"></i>
+                        </div>  
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+            <button type="button" class="button__enviar" data-bs-dismiss="modal" (click)="crearCategoria()">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>

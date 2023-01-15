@@ -1,9 +1,118 @@
-<!--  -->
 
-<div class="cuerpo">
-    <div class="contenedor">
-        <app-cabecera></app-cabecera>
-        <app-operaciones></app-operaciones>
-        <app-fecha></app-fecha>
+<!-- COMPONENTE PRINCIPAL - PADRE -->
+<div class="container-fluid">
+    <div class="row">
+      
+        <!-- DISEÑO DE YESSICA -->
+        <app-menu style="background-color: #e9eaeb;" class="col-md-2  pt-2"></app-menu>
+
+        <!-- DISEÑO DE SHIRLEY -->
+        <div class="col-md-7 bg-info54">
+            <h2 class="categoria-3 h-4">Categories</h2>
+            <nav>
+              <!-- ingresos y gastos -->
+              <ul class="nav-links">
+                <li class="li-nav">
+                    <i class="bi bi-dash-circle expen me-2"></i>
+                    <a class="expen" href="#">Expenses</a>
+                </li>
+                  <li class="li-nav-2">
+                    <i class="bi bi-plus-circle income me-2"></i>
+                    <a class="income" href="#">Income</a>
+                </li>
+              </ul>  
+
+              <!-- FECHAS Y DINERO -->
+              <div class="text-center">
+                  <div class="w-0" style="height: 40px;">
+                  <div id="carouselExample" class="carousel slide ">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <p style="color: black;" class="badge">January 2023</p>
+                      </div>
+                      <div class="carousel-item">
+                        <p style="color: black;" class="badge">February 2023</p>
+                      </div>
+                      <div class="carousel-item">
+                        <p style="color: black;" class="badge">March 2023</p>
+                      </div>
+                      <div class="carousel-item">
+                        <p style="color: black;" class="badge">April 2023</p>
+                      </div>
+                      <div class="carousel-item">
+                        <p style="color: black;" class="badge">May 2023</p>
+                      </div>
+                      <div class="carousel-item">
+                        <p style="color: black;" class="badge">June 2023</p>
+                      </div>
+                      <div class="carousel-item">
+                        <p style="color: black;" class="badge">July 2023</p>
+                      </div>
+                      <div class="carousel-item">
+                        <p style="color: black;" class="badge">August 2023</p>
+                      </div>
+                      <div class="carousel-item">
+                        <p style="color: black;" class="badge">September 2023</p>
+                      </div>
+                      <div class="carousel-item">
+                        <p style="color: black;" class="badge">October 2023</p>
+                      </div>
+                      <div class="carousel-item">
+                        <p style="color: black;" class="badge">November 2023</p>
+                      </div>
+                      <div class="carousel-item">
+                        <p style="color: black;" class="badge">December 2023</p>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev button-carrucel-1"  type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon span-carru " aria-hidden="true"></span>
+                      <span class="visually-hidden" >Previous</span>
+                    </button>
+                    <button class="carousel-control-next button-carrucel-2" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                      <span class="carousel-control-next-icon span-carru" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+                  
+                  <!-- TEXTO -->
+                  <div class="div-total">$1250</div>
+                  <h3 class="h-total">Total Expenses</h3>
+              </div> <!-- FIN DE FECHA Y DINERO -->
+
+              <!-- LISTA DE CATEGORIAS -->
+              <div class="container">
+                <div class="products-container">
+
+                  
+                  <div *ngFor="let category of categories; let i = index" >
+                    <div [ngClass]="'products-'+ (i + 1)" [ngStyle]="{'border-spacing': '1px', 'border-style':'solid', 'border-color': category.color}">
+                      <div [ngStyle]="{'background-color': category.color, 'color': 'white'}" [ngClass]="'circulo-'+(i + 1)">
+                        <!-- <i [ngClass]="'icon-'+(i + 1)" [ngClass]="category.icon"></i> -->
+                        <i [ngClass]="['icon-'+(i +1), category.icon]"></i>
+                        </div>
+                        <h3 [ngStyle]="{'color': category.color}" [ngClass]="'text-'+ (i + 1)">{{category.name}}</h3>
+                        <div [ngClass]="'div-'+ (i + 1)">{{category.total}}</div>
+                    </div>
+                  </div>
+
+
+                    <!-- boton agregar categoria -->
+                    <div class="products-15">
+                        <i class="bi bi-plus-lg icon-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="addCategory()">
+                        </i>
+                    </div>
+
+                </div> <!-- FIN DE PRODUCTS CONTAINER-->
+              </div><!-- FIN DE CONTAINER-->         
+            </nav>
+            
+            <app-new-category (onCreate)="createCategory($event)"></app-new-category>
+        </div>
+
+        <!-- DISEÑO TRANSACCIONES -->
+        <app-transactions  class="col-md-3"></app-transactions>
+
     </div>
+
 </div>
